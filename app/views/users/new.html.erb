@@ -1,11 +1,26 @@
 <h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
-
-  Email: <%= f.text_field :email %>
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Submit" %>
-
+<div class=".input-group">
+    <div class="col-sm-6 col-sm-offset-1">
+		<%= form_for :user, url: '/users' do |f| %>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-menu-right"></i></span>
+		  <%= f.text_field :first_name, class: "form-control", placeholder: 'First Name' %>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-menu-right"></i></span>
+		  <%= f.text_field :last_name, class: "form-control", placeholder: 'Last Name' %>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		  <%= f.text_field :email, class: "form-control", placeholder: 'email' %>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		  <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
+	</div>
+	<div class="input-group">
+		  <%= f.submit "Submit", class: 'btn btn-primary' %>
+	</div>
+</div>
 <% end %>
