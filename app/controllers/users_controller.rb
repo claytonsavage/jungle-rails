@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-    # @user = User.new
   end
 
   def create
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/signup'
-      redirect_to [:user, :new], notice: 'Product created!'
+      redirect_to [:user, :new], notice: 'User created!'
     end
   end
 
@@ -21,8 +20,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :email,
-      :password
-      :password_confirmation
+      :password,
+      :first_name,
+      :last_name
     )
   end
 
