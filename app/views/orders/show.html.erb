@@ -7,6 +7,16 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+  <ul class="list-group">
+  	<% @products.each_with_index do |product, index| %>
+  	<li class="list-group-item"><%= product.name %>
+  	<li class="list-group-item"><%= image_tag product.image.thumb, alt: product.name %><br><%= product.description %>
+  		<aside class="price">$<%= product.price %></aside>
+	<li class="list-group-item"><%= @line_items[index].quantity%></li>
+  	<li class="list-group-item">Total: <%= number_to_currency(@order.total_cents/100)%></li>
+  	<li class="list-group-item">Email Used: <%= @order.email %> </li>
+  	<% end %>
+  </ul>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
