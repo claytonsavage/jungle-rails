@@ -4,7 +4,6 @@ class UserMailer < ApplicationMailer
 	def welcome_email(user)
 	
     @user = user
-    p @user
     @products = Product.joins(:line_items).where("order_id =?", @user.id)
     @line_items = LineItem.where("order_id =?", @user.id)
     mail(to: @user.email, subject: "Order number #{@user.id}")

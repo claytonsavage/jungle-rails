@@ -20,6 +20,31 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+## REVIEWS
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+review1 = Review.create!(
+  description: 'great product real quality',
+  user_id: 1,
+  product_id: 1,
+  rating: 5
+  )
+
+review2 = Review.create!(
+  description: 'wow looks so good on me',
+  user_id: 1,
+  product_id: 1,
+  rating: 4
+  )
+
+user1 = User.create!(
+  first_name: 'Billy',
+  last_name: 'Bolly',
+  email: 'bbolly@test.com',
+  password: 'test'
+  ) 
 
 ## CATEGORIES
 

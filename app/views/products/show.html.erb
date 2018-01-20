@@ -28,4 +28,39 @@
 
   </article>
 
+  <div>
+    <ul class="list-group">
+    <% @review.each do |review|%>
+    <li class="list-group-item">Rating: <%= review.rating %>, <%= review.description %></li>
+    <% end %>
+    </ul>
+  </div>
+
+<%= form_for [@product, Review.new] do |form| %>
+
+ <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%= form.text_field :rating, class: 'form-control' %>
+        </div>
+         <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_field :description, class: 'form-control' %>
+        </div>
+        <%= form.hidden_field(:product_id, :value => @product.id) %>
+        <%= form.hidden_field(:user_id, :value => current_user.id) %>
+        <%= form.submit 'Create category', class: 'btn btn-primary' %>
+  <% end %>
+
+
 </section>
