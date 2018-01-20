@@ -30,12 +30,12 @@
 
   <div>
     <ul class="list-group">
-    <% @review.each do |review|%>
+    <% @review.reverse_each do |review|%>
     <li class="list-group-item">Rating: <%= review.rating %>, <%= review.description %></li>
     <% end %>
     </ul>
   </div>
-
+<% if current_user %>
 <%= form_for [@product, Review.new] do |form| %>
 
  <% if form.object.errors.any? %>
@@ -61,6 +61,6 @@
         <%= form.hidden_field(:user_id, :value => current_user.id) %>
         <%= form.submit 'Create category', class: 'btn btn-primary' %>
   <% end %>
-
+<% end %>
 
 </section>
