@@ -17,10 +17,10 @@ Run `bin/rails s` to start the server
 
 ## Screenshots
 
-![Product Page]()
-![Admin Page]()
-![Product Page View]()
-![Shopping Cart]()
+![Product Page](https://github.com/claytonsavage/jungle-rails/blob/master/docs/product_page.png?raw=true)
+![Admin Page](https://github.com/claytonsavage/jungle-rails/blob/master/docs/admin_products.png?raw=true)
+![Product Page View](https://github.com/claytonsavage/jungle-rails/blob/master/docs/product_page_view.png?raw=true)
+![Shopping Cart](https://github.com/claytonsavage/jungle-rails/blob/master/docs/shopping_cart.png?raw=true)
 
 ## Stripe Testing
 
