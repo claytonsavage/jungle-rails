@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
 
-describe 'Validations' do
+describe 'Product Validations' do
     # validation tests/examples here
     it 'should be invalid with no value for name' do
     	product = Product.new
