@@ -43,10 +43,24 @@ RSpec.describe User, type: :model do
 
 
     it 'should have password length greater than 8 characters' do
-      user = User.new(password: "bob@bob.com", first_name: "bob", last_name: "bob", password: "123", password_confirmation: "123")
+      user = User.new(email: "bob@bob.com", first_name: "bob", last_name: "bob", password: "123", password_confirmation: "123")
       expect(user).to_not(be_valid)
       puts user.errors[:password]
       expect(user.errors[:password]).to(include("is too short (minimum is 8 characters)"))
+    end
+
+  end
+
+  describe '.authenticate_with_credentials' do
+
+    it 'should not authenticate with wrong credentials' do
+    user = User.create(email: "bob@test.com", first_name: "bob", last_name: "bob", password: "123456789", password_confirmation: "123456789")
+    expect(User.authenticate_with_credentials("bb@test.com", "123456789")).to(be_falsy)
+    end
+
+    it 'should authenticate with correct credentials' do
+    user = User.create(email: "bob@test.com", first_name: "bob", last_name: "bob", password: "123456789", password_confirmation: "123456789")
+    expect(User.authenticate_with_credentials("bob@test.com", "123456789")).to(be_truthy)
     end
 
   end
