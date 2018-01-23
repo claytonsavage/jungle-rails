@@ -20,6 +20,10 @@
 		  <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
 	</div>
 	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		  <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'password confirmation' %>
+	</div>
+	<div class="input-group">
 		  <%= f.submit "Submit", class: 'btn btn-primary' %>
 	</div>
 </div>

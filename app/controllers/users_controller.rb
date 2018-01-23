@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/signup'
-      redirect_to [:user, :new], notice: 'User created!'
     end
   end
 
@@ -22,7 +21,8 @@ class UsersController < ApplicationController
       :email,
       :password,
       :first_name,
-      :last_name
+      :last_name,
+      :password_confirmation
     )
   end
 

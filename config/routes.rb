@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:show]
   resources :users, except: [:destroy, :update, :edit]
-  # resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
 
   resource :cart, only: [:show] do
     put    :add_item
